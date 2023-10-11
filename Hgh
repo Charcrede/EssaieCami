@@ -1,0 +1,23 @@
+Bonjour charcrede,
+
+Je comprends votre problème avec les input radio dans votre plateforme de quiz. Pour désactiver la sélection automatique de l'input radio précédemment sélectionné, vous pouvez utiliser la propriété "checked" de l'input radio pour le désélectionner manuellement. Vous pouvez ajouter un événement "change" à chaque input radio pour appeler une fonction qui décoche tous les autres input radio de la même question. Voici un exemple de code :
+
+<input type="radio" name="nomDeLaRadio" value="valeur1" v-model="nomDuModele" @change="deselectionnerAutresRadios">
+
+methods: {
+    deselectionnerAutresRadios() {
+        var radios = document.getElementsByName('nomDeLaRadio');
+        for(var i = 0; i < radios.length; i++) {
+            if(radios[i].value !== this.nomDuModele) {
+                radios[i].checked = false;
+            }
+        }
+    }
+}
+
+Dans cet exemple, la fonction "deselectionnerAutresRadios" est appelée chaque fois qu'un input radio est modifié. Elle désélectionne tous les autres input radio de la même question en décochant leur propriété "checked". Cela empêchera l'input radio précédemment sélectionné de rester coché.
+
+J'espère que cela vous aidera. N'hésitez pas à me demander si vous avez d'autres questions.
+
+Bien à vous,
+Hinata Hyug
